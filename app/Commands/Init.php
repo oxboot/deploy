@@ -4,6 +4,7 @@ namespace App\Commands;
 
 use Illuminate\Console\Scheduling\Schedule;
 use LaravelZero\Framework\Commands\Command;
+use Illuminate\Support\Facades\Storage;
 
 class Init extends Command
 {
@@ -12,14 +13,14 @@ class Init extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'init';
 
     /**
      * The description of the command.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Generates a new config file deploy.yml';
 
     /**
      * Execute the console command.
@@ -28,7 +29,7 @@ class Init extends Command
      */
     public function handle(): void
     {
-        //
+        Storage::put('deploy.yml', 'Contents');
     }
 
     /**
